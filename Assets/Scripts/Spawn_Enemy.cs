@@ -8,7 +8,7 @@ public class Spawn_Enemy : MonoBehaviour
     private GameObject zombie_prefab;
 
     [SerializeField]
-    private float time_to_new_zombie = 1f;
+    private float time_to_new_zombie = 2f;
 
     void Update()
     {
