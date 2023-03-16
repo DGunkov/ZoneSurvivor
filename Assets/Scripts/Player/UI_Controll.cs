@@ -5,6 +5,8 @@ using UnityEngine;
 public class UI_Controll : MonoBehaviour
 {
     [SerializeField] GameObject inventory_panel;
+    [SerializeField] GameObject health_panel;
+    [SerializeField] GameObject death_panel;
     private GameObject player;
     private Fire fire_script;
     private Rotate rotate_script;
@@ -20,6 +22,17 @@ public class UI_Controll : MonoBehaviour
         camera_script = Camera.main.GetComponent<Camera_Move>();
     }
 
+    internal void Death()
+    {
+        death_panel.SetActive(true);
+        death_panel.GetComponent<AudioSource>().Play();
+        inventory_panel.SetActive(false);
+        Cursor.visible = true;
+        fire_script.enabled = false;
+        rotate_script.enabled = false;
+        move_script.move_ready = false;
+        camera_script.move_ready = false;
+    }
     private void SwitchInventory()
     {
         if(drag_item != null)
@@ -27,13 +40,14 @@ public class UI_Controll : MonoBehaviour
             drag_item.ReturnPosition();
             drag_item = null;
         }
-        bool actvie_inventory = inventory_panel.activeSelf;
-        inventory_panel.SetActive(!actvie_inventory);
-        Cursor.visible = !actvie_inventory;
-        fire_script.enabled = actvie_inventory;
-        rotate_script.enabled = actvie_inventory;
-        move_script.enabled = actvie_inventory;
-        camera_script.enabled = actvie_inventory;
+        bool active_inventory = inventory_panel.activeSelf;
+        inventory_panel.SetActive(!active_inventory);
+        health_panel.SetActive(active_inventory);
+        Cursor.visible = !active_inventory;
+        fire_script.enabled = active_inventory;
+        rotate_script.enabled = active_inventory;
+        move_script.move_ready = active_inventory;
+        camera_script.move_ready = active_inventory;
     }
     void Update()
     {

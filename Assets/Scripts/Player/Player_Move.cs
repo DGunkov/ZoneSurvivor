@@ -3,13 +3,14 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour
 {
     [SerializeField] private AudioSource step_sound;
-    private Rigidbody2D rb;
+    internal Rigidbody2D rb;
 
     [SerializeField, Range(1, 500)] private float move_speed_standart;
     [SerializeField, Range(1, 10)] private float sprint_factor;
     [SerializeField, Range(0.01f, 1)] private float reverse_factor;
     private float move_speed;
     internal float health_factor = 1;
+    internal bool move_ready = true;
 
 
     [SerializeField, Range(0.01f, 5)] private float standart_time_step = 0.6f;
@@ -17,8 +18,15 @@ public class Player_Move : MonoBehaviour
 
     Vector2 direction_move()
     {
-        Vector2 dir_move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-        return dir_move;
+        if(move_ready)
+        {
+            Vector2 dir_move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+            return dir_move;
+        }
+        else
+        {
+            return new Vector2(0, 0);
+        }
     }
 
     void Start()
@@ -27,10 +35,10 @@ public class Player_Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }    
 
-    void FixedUpdate()
+    internal void FixedUpdate()
     {
         
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) && move_ready)
         {
             Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float angle = Vector2.Angle(direction, direction_move());

@@ -26,6 +26,7 @@ public class TakeDamage : MonoBehaviour
     [SerializeField] private Image head_image;
 
 
+    [SerializeField] private UI_Controll UI_Controll;
     private Player_Move Player_Move;
     private Fire Fire;
     void Start()
@@ -164,27 +165,27 @@ public class TakeDamage : MonoBehaviour
     }
     void Body(float delta)
     {
-        if (body_hp > 0)
+        if (body_hp > 0 && head_hp > 0)
         {
             body_hp += delta;
 
             body_image.color = SetColor(max_body_hp, body_hp);
             if (body_hp <= 0)
             {
-                print("Смерть");
+                UI_Controll.Death();
             }
         }
     }
     void Head(float delta)
     {
-        if (head_hp > 0)
+        if (head_hp > 0 && body_hp > 0)
         {
             head_hp += delta;
 
             head_image.color = SetColor(max_head_hp, head_hp);
             if(head_hp <= 0)
             {
-                print("Смерть");
+                UI_Controll.Death();
             }
         }
     }

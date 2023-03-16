@@ -8,6 +8,7 @@ public class Camera_Move : MonoBehaviour
     private Transform player;
     [SerializeField] private Transform place_for_camera;
     [SerializeField] private GameObject aim;
+    internal bool move_ready = true;
 
     private float last_mouse_distance;
 
@@ -37,7 +38,7 @@ public class Camera_Move : MonoBehaviour
         mouse_position_in_screen = new Vector3(mouse_position_in_screen.x, mouse_position_in_screen.y * 2);
         float distance_to_mouse = Vector3.Distance(mouse_position_in_screen, new Vector3(0, 0));
 
-        if (Input.GetAxis("Fire2") > 0 && !fire_script.reloading)
+        if (Input.GetAxis("Fire2") > 0 && !fire_script.reloading && move_ready)
         {
             aim.SetActive(true);
 
