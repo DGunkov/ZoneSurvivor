@@ -380,6 +380,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Guns/Bullet.cs"
 "Assets/Scripts/Guns/Gun.cs"
+"Assets/Scripts/Guns/Magazine.cs"
 "Assets/Scripts/Guns/Shoot_Flash.cs"
 "Assets/Scripts/Mobs/Units_Standart.cs"
 "Assets/Scripts/Mobs/Zombie.cs"

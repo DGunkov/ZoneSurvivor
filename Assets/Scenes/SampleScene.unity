@@ -3674,7 +3674,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000015258789, y: 0}
   m_SizeDelta: {x: -0.000030517578, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8439,7 +8439,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1204609680
 MonoBehaviour:
@@ -9218,8 +9218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn_for_bullet: {fileID: 24949627}
   gun_sprite: {fileID: 2002735626}
-  slot_for_gun_1: {fileID: 756184358}
-  slot_for_gun_2: {fileID: 1989485362}
+  slot_for_gun_1: {fileID: 0}
+  slot_for_gun_2: {fileID: 0}
   bullet_prefab: {fileID: 2671534800856749745, guid: 152f204e78863ab40bd70c2789757bd6, type: 3}
   shoot_light_prefab: {fileID: 5878416355271254679, guid: ee56fb7ec0893d447993e2e3c4148d59, type: 3}
   shoot_sound: {fileID: 1081734561}
@@ -9269,13 +9269,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696f0407c45362b488f48f9aa1f1949f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left_arm_image: {fileID: 178916401}
-  right_arm_image: {fileID: 1437316096}
-  left_leg_image: {fileID: 1708512517}
-  right_leg_image: {fileID: 121302580}
-  body_image: {fileID: 1513171000}
-  head_image: {fileID: 1404287546}
-  UI_Controll: {fileID: 893507022}
+  left_arm_image: {fileID: 0}
+  right_arm_image: {fileID: 0}
+  left_leg_image: {fileID: 0}
+  right_leg_image: {fileID: 0}
+  body_image: {fileID: 0}
+  head_image: {fileID: 0}
+  UI_Controll: {fileID: 0}
 --- !u!1 &1478662245
 GameObject:
   m_ObjectHideFlags: 0
@@ -9560,7 +9560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1519729312
 RectTransform:
   m_ObjectHideFlags: 0
